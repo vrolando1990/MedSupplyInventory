@@ -1,5 +1,5 @@
-#include<iostream>
-
+#include <iostream>
+#include <fstream>
 #include "Database.h"
 
 using namespace std;
@@ -7,11 +7,11 @@ using namespace std;
 // Constructor to initiate LinkedList starting point
 Database ::Database()
 {
-    length = 0;  // Initiats length
+    length = 0;  // Initiated length
     listData = NULL;  // Sets the start point to NULL as the list is empty
 }
 
-// Inserts a new node at the begining of the list, with the user inputed data.
+// Inserts a new node at the beginning of the list, with the user imputed data.
 void Database ::PutItem(int quantity, string itemName)
 {
     
@@ -112,4 +112,31 @@ void Database::searchById(long productId)
         currentptr = currentptr->next;
     }
     cout << "Product not found" << endl;
+}
+
+void Database:: printFile(){
+    
+    // Create file to read too
+    ofstream outFile;
+    outFile.open("C:\\Users\\vrola\\OneDrive\\Documents\\CPPWorkspace\\SummerClass\\Project\\printOut.out");
+    
+    // Writes the following information to file
+    outFile << "---- Database Data ----" << endl << endl;
+    
+    Node* temp = new Node;
+    temp = listData;
+    
+    while(temp != NULL) {
+        outFile << temp->item.getItemName() << endl;
+        outFile << temp->item.getQuantity() << endl;
+        outFile << temp->item.getItemId() << endl;
+        
+        outFile << temp->item.getUserName() << endl;
+        outFile << temp->item.getPhoneNum() << endl << endl;
+        
+        temp = temp->next;
+    }
+    
+    cout << "File has been created" << endl;
+    outFile.close();
 }
