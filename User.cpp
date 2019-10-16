@@ -1,4 +1,3 @@
-
 /*
  Will host the user menu and call the correct fuctions  
 */
@@ -20,7 +19,7 @@ int main(){
     
     string input; 
     int quant; 
-    int prodId;
+    long prodId;
     
     // Kicks off the menu 
     cout << "-------- Welcome to Inventory --------" << endl << endl;
@@ -28,8 +27,8 @@ int main(){
     // Asks if its an admin (Should go to another menu if yes)
     // Do while a Y or an N is not entered
     do{
-    cout << "Are you an administrator? [Y/N]: ";
-    cin >> answer;
+        cout << "Are you an administrator? [Y/N]: ";
+        cin >> answer;
     } while((char(tolower(answer)) != 'y') && (char(tolower(answer)) != 'n')); // Makes answer lower case to reduce the conditions 
 
     // If the user is an admin do this
@@ -47,13 +46,10 @@ int main(){
             cout << "4. Get request information" << endl; 
             cout << "5. Print file" << endl;  // Check feasability of printing a database...
             cout << "6. Accept or Deny product" << endl;
-            cin >> answer;
-                        
+            cin >> answer;       
         } else{
             cout << "The password you have entered is inccorect please try again." << endl << endl;
         }
-        
-        
     // If user is not an admin do this
     } else if(char(tolower(answer)) == 'n') {
         // Output secondary menu
@@ -74,12 +70,11 @@ int main(){
                     if(answer == 1){
                         cout << "Enter the name of the product: ";
                         cin >> input;
-                        // call search
-
+                        database.searchByName(input);    
                     } else if (answer == 2){
                         cout << "Enter the the products Id: ";
                         cin >> prodId;
-                        // call search
+                        database.searchById(prodId);
                     }
                 
             } else if (answer == '2'){
