@@ -28,7 +28,9 @@ public:
     bool searchId();
     
     void searchByName(string productName);
-    void searchById(long producId);
+    void searchById(long productId);
+ 
+    void Modify(long input, string itemName, int quantity);
  
     long IdCounter = 1; // Will provide all items a unique ID number
 
