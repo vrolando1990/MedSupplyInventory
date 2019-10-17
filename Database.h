@@ -19,6 +19,8 @@ public:
     Database();  // Constructor
     void PutItem(int, string);  // Adds a node to the beginning of list 
     int GetLength() const;  // Gets the number of nodes in the list
+    void printFile();
+    
     void display();  //Displays everyhting in list (created for testing)
     string pass();
     
