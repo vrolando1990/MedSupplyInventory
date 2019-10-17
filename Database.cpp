@@ -114,6 +114,38 @@ void Database::searchById(long productId)
     cout << "Product not found" << endl;
 }
 
+void Database::Modify(long input, int quanitity, string itemName){
+   Node *location;
+   Node *prev=NULL;
+   Node *current=NULL;
+   int quant;
+   string name;
+   long input;
+   cout<<"Enter product ID to search:"<<endl;
+   cin>>input;
+   prev=head;
+   current=head;
+   while(location->item.getItemId!=input){
+      prev=current;
+      current=current->next;
+ }
+location=new node;
+ fflush(stdin);
+ 
+ cout<<"Enter Item name:" <<endl;
+ gets(location->item.itemName);
+ fflush(stdin);
+ 
+ cout<<"Enter quantity:" <<endl;
+ gets(location->item.quantity);
+ fflush(stdin);
+ 
+ prev->next = location;
+ location->next = current->next;
+ current->next=NULL;
+ delete current;
+ cout<< "Item modified" <<endl;
+
 void Database:: printFile(){
     
     // Create file to read too
